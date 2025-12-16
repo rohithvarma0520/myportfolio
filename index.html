@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color:#C7E9B0;
+            height: 100%;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            background-color: #fffdd0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-bottom: 30px;
+        }
+        .logo{
+            font-size: 50px;
+            color: black;
+        }
+        .navbar a{
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 25px;
+            color: black;
+            transition:color 0.3s;
+        }
+        .navbar a:hover{
+            color: #4a5d23;
+        }
+        #about{
+            background-color: #fffdd0;
+            color: black;
+            min-height: 550px;
+            padding: 80px;
+            position: relative;
+        }
+        .hero-name{
+            font-size: 40px;
+            text-shadow: 2px 2px 0px,4px 4px 0;
+        }
+        .typing{
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid black;
+            width: 0;
+            animation:typing 3s steps(5,end) infinite,blink 0.7s step-end infinite;
+        }
+        @keyframes typing {
+           from{
+            width: 0;
+           }
+           to{
+            width: 9ch;
+           }
+        }
+        @keyframes blink {
+            50%{
+                border-color: transparent;
+            }
+        }
+           
+        h2{
+            padding-top: 100px;
+            text-shadow: 2px;
+        }
+        p{
+            margin-top:none;   
+        }
+        li{
+            display: flex;
+        }
+        .profile{
+            float: right;
+            margin-top: 75px;
+            margin-right: 30px;
+            width: 400px;
+            height: 400px;
+            justify-content: center;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+        p{
+            margin-top: 10px;
+        }
+        .resume-btn{
+            display: inline-block;
+            margin-top: 25px;
+            padding: 16px 38px;
+            color: #004d4d;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px;
+            transition: all 0.3s ease;
+        }
+        .resume-btn:hover{
+            transform: translateY(-3px);
+        }
+        .education-section{
+           text-align: center;
+           margin-top: 40px;
+           background-color: #fffdd0;
+           padding-bottom: 120px;
+           padding-top: 60px;
+           scroll-margin: 120px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .box{
+            width: 180px;
+            height: 300px;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 15px;
+            margin-top: 80px;
+            transition: 0.3s;
+        }
+        .box:hover{
+            transform: translateY(-10px);
+        }
+        .box.icon{
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .red{
+            background-color: #9bc53d;
+        }
+        .green{
+            background-color: #98ff98;
+        }
+        .yellow{
+            background-color: #c2b280;
+        }
+        .skill-section{
+            height: auto;
+            text-align: center;
+            padding-top: 60px;
+            background-color: #fffdd0;
+            padding-bottom: 120px;
+            scroll-margin: 120px;
+        }
+        .skill-container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 40px;
+            justify-items: center; 
+        }
+        .skill-box{
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px;
+            height: 50px;
+            width: 100px;
+            margin-top: 20px;
+        }
+        .skill-box img{
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition:transform 0.6s ease-in-out;
+        }
+        .skill-box:hover img{
+            transform:rotate(360deg);
+        }
+        .skill-section{
+            content: "";
+            display: block;
+            
+        }
+        .project-section{
+            text-align: center;
+            padding: 20px 0;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            background-color: #fffdd0;
+        }
+        .project-card{
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px;
+            height: 280px;
+            margin-top: 30px;
+        }
+        .project-card h2{
+            margin-bottom: 15px;
+        }
+        .project-card p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        .project-buttons{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: transparent;
+            height: auto;
+            padding-left: 10px;
+        }
+        .btn{
+            padding: 10px 18px;
+            background-color: #0f9d58;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            height: 20px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn.outline{
+            background: transparent;
+            color: #0f9d58;
+            border: 2px solid #0f9d58;
+        }
+        .btn:hover{
+            transform:translateY(-3px);
+        }
+        .footer{
+            background-color: #C7E9B0;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .connect-title{
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: black;
+        }
+        .footer-buttons{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .footer-btn{
+            border: 2px solid black;
+            padding: 10px 55px;
+            color: black;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .footer.btn:hover{
+            background-color: #C7E9B0;
+            color: white;
+        }
+        .footer-text{
+            color: black;
+            font-size: 15px;
+        }
+        @media screen and (max-width:600px) {
+
+           .navbar a{
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 25px;
+            color: black;
+            transition:color 0.3s;
+        }
+        .navbar a:hover{
+            color: #4a5d23;
+        }
+            
+        }
+        @media (max-width: 600px) {
+
+        .header{
+         flex-direction: column;
+         padding: 15px;
+        }
+        .logo{
+         font-size: 32px;
+        }
+        .navbar{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+          gap: 12px;
+       }
+       .navbar a{
+        font-size: 16px;
+        margin-left: 0;
+       }
+       #about{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #about h2,
+      #about h1,
+      #about p{
+        text-align: center;
+      }
+      .profile{
+       float: none;
+       width: 220px;
+       height: 220px;
+       margin: 0 auto 20px;
+       display: block;
+     }
+     .hero-name{
+      font-size: 40px;
+      text-align: center;
+      text-shadow: 2px 2px 0;
+     }
+    .container{
+    flex-direction: column;
+    align-items: center;
+    }
+    .box{
+    width: 180px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 15px;
+    margin-top: 80px;
+    }
+    .skill-container{
+    grid-template-columns: repeat(2,1fr);
+    }
+    .project-card{
+    }
+    .footer-btn{
+    padding: 10px 30px;
+    font-size: 16px;
+    }
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="icon" href="web.jpeg">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Portfolio</div>
+
+        <nav class="navbar">
+            <a href="#home"><i class="fa-solid fa-house"></i></a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
+    <div id="about">
+    <img src="rohith.jpg" class="profile" alt="" >
+    <h2>HEY! <span class="typing">THERE</span></h2>
+    <h1 class="hero-name">I AM ROHITH VARMA</h1>
+      <h2>I'm a <span>Full Stack Java Developer</span></h2>
+      <P> I am learning Java Full Stack development with a strong interest in creating dynamic and user-friendly applications. Even though I come from a B.Com background, I am passionate about technology and consistently improving my skills in Java, HTML, CSS, JavaScript, and MySQL. I am focused on practicing daily and working on small projects to gain real-time experience.</P>
+
+      <a href="" class="resume-btn" target="blank"> Download Resume</a>
+      </div>
+
+
+      <div class="education-section" id="education">
+        <h1>EDUCATION</h1>
+
+      
+      <div class="container">
+        <div class="box red">
+             <h2><i class="fa-solid fa-graduation-cap"></i>2025-Bcom</h2>
+            <p>Tapasya Degree College</p>
+        </div>
+
+        <div class="box green">
+            <h2><i class="fa-solid fa-school"></i>2022-Intermediate</h2>
+            <p>Ships Junior College</p>
+        </div>
+
+        <div class="box yellow">
+            <h2><i class="fa-solid fa-book-open"></i>2020-10th</h2>
+            <p>Satya Sai Vidyaniketan High School</p>
+
+        </div>
+      </div>
+      </div>
+
+      <div class="skill-section" id="skills">
+        <h1>SKILLS</h1>
+
+      <div class="skill-container">
+        <div class="skill-box">
+            <img src="html.jpeg" alt="" width="80px">
+            <h3>HTML</h3>
+        </div>
+
+        <div class="skill-box">
+            <img src="css.jpeg" alt=""  width="80px">
+            <h3>CSS</h3>
+        </div>
+
+        <div class="skill-box">
+            <img src="javascript.jpeg" alt=""  width="80px">
+            <h3>JAVASCRIPT</h3>
+        </div>
+
+        <div class="skill-box">
+            <img src="java.jpeg" alt=""  width="80px">
+            <h3>JAVA</h3>
+        </div>
+        
+        <div class="skill-box">
+            <img src="sql.jpeg" alt=""  width="80px">
+            <h3>SQL</h3>
+        </div>
+
+        <div class="skill-box">
+            <img src="reactjs.jpeg" alt="" width="80px">
+            <h3>REACT JS</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="project-section" id="project">
+        <h1>MY PROJECTS</h1>
+
+        <div class="project-card">
+            <h2>Personal Portfolio Website</h2>
+
+            <p>
+                A responsive personal portfolio website built using HTML and CSS.
+                     It highlights my skills,education,and projects with clean and modern design.
+            </p>
+
+            <p><strong>Technologies:</strong>HTML,CSS</p>
+
+            <div class="project-buttons">
+                <a href="#" class="btn">View live</a>
+               
+            </div>
+        </div>
+      </div>
+
+      <footer class="footer" id="contact">
+        <h2 class="connect-title">Lets Connect</h2>
+
+        <div class="footer-buttons">
+            <a href="mailto:rohithvarma0520@gmail.com" class="footer-btn">
+                <i class="">Email</i>
+            </a>
+            <a href="https://www.instagram.com/_rohithvarma?igsh=MTZ5eGZsdzRqdTUxeA==" class="footer-btn">
+                <i class="">Instagram</i>
+            </a>
+            <a href="" target="_blank" class="footer-btn">
+                <i class="">LinkedIn</i>
+                </a>
+
+        </div>
+        <p class="footer-text">&COPY;2025 Rohith Varma.Designed with purpose.</p>
+
+      </footer>
+
+      
+</body>
+</html>
